@@ -1,0 +1,3 @@
+namespace SCEngineT {
+	int chekGLFW();
+}
