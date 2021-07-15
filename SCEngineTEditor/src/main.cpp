@@ -7,7 +7,7 @@ class MyApp : public SCEngineT::Application
 {
 	virtual void on_update() override
 	{
-		std::cout << "Update frame: " << frame++ << std::endl;
+		//std::cout << "Update frame: " << frame++ << std::endl;
 	}
 
 	int frame = 0;

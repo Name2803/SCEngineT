@@ -1,3 +1,5 @@
+#pragma once
+
 namespace SCEngineT {
 	class Application
 	{
