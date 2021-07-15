@@ -1,9 +1,23 @@
 #include <iostream>
+#include <memory>
 
-#include <SCEngineTCore/Utils/test.hpp>
+#include <SCEngineTCore/Application.hpp>
+
+class MyApp : public SCEngineT::Application
+{
+	virtual void on_update() override
+	{
+		std::cout << "Update frame: " << frame++ << std::endl;
+	}
+
+	int frame = 0;
+};
 
 int main()
 {
-	std::cout << "Hi!\n";
-	SCEngineT::chekGLFW();
+	auto myApp = std::make_unique<MyApp>();
+
+	int returnCode = myApp->start(1024, 768, "Hi Core!");
+
+	return returnCode;
 }

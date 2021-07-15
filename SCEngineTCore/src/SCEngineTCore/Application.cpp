@@ -1,14 +1,23 @@
-#include <iostream>
+#pragma once
 
-#include "../includes/SCEngineTCore/Utils/test.hpp"
+#include "../includes/SCEngineTCore/Application.hpp"
 
 #include <GLFW/glfw3.h>
+#include <iostream>
 
-namespace SCEngineT
-{
-	int chekGLFW()
+namespace SCEngineT {
+	Application::Application()
 	{
-		std::cout << "Hi! Core\n";
+
+	}
+	Application::~Application()
+	{
+
+	}
+
+	int Application::start(unsigned int window_width, unsigned int window_height, const char* title)
+	{
+        std::cout << "Hi! Core\n";
         GLFWwindow* window;
 
         /* Initialize the library */
@@ -16,7 +25,7 @@ namespace SCEngineT
             return -1;
 
         /* Create a windowed mode window and its OpenGL context */
-        window = glfwCreateWindow(640, 480, "Hi Core!", NULL, NULL);
+        window = glfwCreateWindow(window_width, window_height, title, NULL, NULL);
         if (!window)
         {
             glfwTerminate();
@@ -37,9 +46,13 @@ namespace SCEngineT
 
             /* Poll for and process events */
             glfwPollEvents();
+
+            on_update();
         }
 
         glfwTerminate();
         return 0;
 	}
+
+
 }
